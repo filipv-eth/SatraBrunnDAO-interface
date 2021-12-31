@@ -452,17 +452,63 @@ var app = (function () {
 
     function create_fragment(ctx) {
     	let header;
-    	let t;
+    	let t0;
     	let main;
+    	let article;
+    	let img0;
+    	let img0_src_value;
+    	let t1;
+    	let p0;
+    	let b;
+    	let t3;
+    	let t4;
+    	let hr;
+    	let t5;
+    	let p1;
+    	let t7;
+    	let img1;
+    	let img1_src_value;
     	let current;
     	header = new Header({ $$inline: true });
 
     	const block = {
     		c: function create() {
     			create_component(header.$$.fragment);
-    			t = space();
+    			t0 = space();
     			main = element("main");
-    			attr_dev(main, "class", "svelte-oagy4v");
+    			article = element("article");
+    			img0 = element("img");
+    			t1 = space();
+    			p0 = element("p");
+    			b = element("b");
+    			b.textContent = "Sätra Brunn";
+    			t3 = text(" is a 144 acre wellness destination in the suburbs of Stockholm,\n      Sweden, renowned for its healing spring water and picturesque scenery.");
+    			t4 = space();
+    			hr = element("hr");
+    			t5 = space();
+    			p1 = element("p");
+    			p1.textContent = "Sätra Brunn DAO plans to buy Sätra Brunn at auction to establish the\n      first-ever real world DAO-governed municipality.";
+    			t7 = space();
+    			img1 = element("img");
+    			attr_dev(img0, "id", "color-palette");
+    			if (!src_url_equal(img0.src, img0_src_value = "circle-palette.png")) attr_dev(img0, "src", img0_src_value);
+    			attr_dev(img0, "alt", "color palette in circles");
+    			attr_dev(img0, "class", "svelte-6vdgnf");
+    			add_location(img0, file, 7, 4, 94);
+    			add_location(b, file, 13, 6, 213);
+    			attr_dev(p0, "class", "svelte-6vdgnf");
+    			add_location(p0, file, 12, 4, 203);
+    			attr_dev(hr, "class", "svelte-6vdgnf");
+    			add_location(hr, file, 16, 4, 386);
+    			attr_dev(p1, "class", "svelte-6vdgnf");
+    			add_location(p1, file, 17, 4, 397);
+    			attr_dev(article, "class", "svelte-6vdgnf");
+    			add_location(article, file, 6, 2, 80);
+    			if (!src_url_equal(img1.src, img1_src_value = "map.png")) attr_dev(img1, "src", img1_src_value);
+    			attr_dev(img1, "alt", "map");
+    			attr_dev(img1, "class", "svelte-6vdgnf");
+    			add_location(img1, file, 22, 2, 555);
+    			attr_dev(main, "class", "svelte-6vdgnf");
     			add_location(main, file, 5, 0, 71);
     		},
     		l: function claim(nodes) {
@@ -470,8 +516,20 @@ var app = (function () {
     		},
     		m: function mount(target, anchor) {
     			mount_component(header, target, anchor);
-    			insert_dev(target, t, anchor);
+    			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
+    			append_dev(main, article);
+    			append_dev(article, img0);
+    			append_dev(article, t1);
+    			append_dev(article, p0);
+    			append_dev(p0, b);
+    			append_dev(p0, t3);
+    			append_dev(article, t4);
+    			append_dev(article, hr);
+    			append_dev(article, t5);
+    			append_dev(article, p1);
+    			append_dev(main, t7);
+    			append_dev(main, img1);
     			current = true;
     		},
     		p: noop,
@@ -486,7 +544,7 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			destroy_component(header, detaching);
-    			if (detaching) detach_dev(t);
+    			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
     		}
     	};

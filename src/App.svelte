@@ -3,7 +3,25 @@
 </script>
 
 <Header />
-<main />
+<main>
+  <article>
+    <img
+      id="color-palette"
+      src="circle-palette.png"
+      alt="color palette in circles"
+    />
+    <p>
+      <b>Sätra Brunn</b> is a 144 acre wellness destination in the suburbs of Stockholm,
+      Sweden, renowned for its healing spring water and picturesque scenery.
+    </p>
+    <hr />
+    <p>
+      Sätra Brunn DAO plans to buy Sätra Brunn at auction to establish the
+      first-ever real world DAO-governed municipality.
+    </p>
+  </article>
+  <img src="map.png" alt="map" />
+</main>
 
 <style>
   :global(body) {
@@ -19,10 +37,29 @@
   }
 
   main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  article {
+    width: 50%;
+  }
+
+  img {
+    width: 300px;
+  }
+  p {
+    font-size: x-large;
+  }
+
+  hr {
+    border: 1px solid gray;
+  }
+
+  #color-palette {
+    width: 250px;
   }
 
   @media (min-width: 640px) {
