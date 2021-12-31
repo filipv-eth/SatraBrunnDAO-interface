@@ -25,6 +25,8 @@ body {
   padding: 8px;
   box-sizing: border-box;
   font-family: "Red Hat Display", sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 h1 {
