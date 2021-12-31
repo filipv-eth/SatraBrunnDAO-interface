@@ -17,7 +17,7 @@
     <hr />
     <p>
       Sätra Brunn DAO plans to buy Sätra Brunn at auction to establish the
-      first-ever real world DAO-governed municipality.
+      first-ever real world <b>DAO-governed municipality.</b>
     </p>
   </article>
   <img src="map.png" alt="map" />
