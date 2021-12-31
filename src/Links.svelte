@@ -13,6 +13,7 @@
         list-style-type: none;
         font-weight: 700;
         font-size: 1.25rem;
+        padding-inline-start: 0;
     }
     li {
         color: var(--grayish-orange);

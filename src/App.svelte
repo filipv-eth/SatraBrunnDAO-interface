@@ -32,15 +32,16 @@
     /* The light background color
 		Putting it here, instead of global.css, as we will dynamically want to switch between dark and light
 		*/
-    background-image: url('footer-hills.svg'), linear-gradient(
+    background-image: url("footer-hills.svg"),
+      linear-gradient(
         0.47deg,
         rgba(0, 136, 255, 0.2) 0.39%,
         rgba(220, 230, 239, 0.2) 99.58%
       ),
-      linear-gradient(0deg, #dce6ef, #dce6ef);;
+      linear-gradient(0deg, #dce6ef, #dce6ef);
     background-position: bottom;
     background-repeat: repeat-x;
-      /* background-size: 800px; */
+    /* background-size: 800px; */
   }
 
   #main-description {
@@ -75,21 +76,32 @@
 
   @media (max-width: 640px) {
     :global(html) {
-      background-size: 700px;
+      background-size: 680px;
     }
 
-    #main-description {
-      max-width: none;
-      flex-direction: column;
+    :global(body) {
+      overflow: scroll;
     }
+
     article {
       width: unset;
     }
 
+    p {
+      font-size: large;
+    }
+    #main-description {
+      max-width: none;
+      flex-direction: column;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
     #map {
-      margin: 0 auto;
-      width: 200px;
-      height: 200px;
+      display: none;
+      /* margin: 0 auto;
+      width: 175px;
+      height: 175px; */
     }
   }
 </style>
