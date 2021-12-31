@@ -32,15 +32,14 @@
     /* The light background color
 		Putting it here, instead of global.css, as we will dynamically want to switch between dark and light
 		*/
-    background: linear-gradient(
+    background-image: url('footer-hills.svg'), linear-gradient(
         0.47deg,
         rgba(0, 136, 255, 0.2) 0.39%,
         rgba(220, 230, 239, 0.2) 99.58%
       ),
-      linear-gradient(0deg, #dce6ef, #dce6ef);
-      background-image: url('footer-hills.svg');
-      background-position: bottom;
-      background-repeat: repeat-x;
+      linear-gradient(0deg, #dce6ef, #dce6ef);;
+    background-position: bottom;
+    background-repeat: repeat-x;
       /* background-size: 800px; */
   }
 
