@@ -18,4 +18,10 @@
         margin-left: auto;
         width: 250px;
     }
+
+    @media (max-width: 640px) {
+        img:last-of-type {
+            display: none;
+        }
+    }
 </style>

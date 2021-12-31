@@ -74,9 +74,23 @@
     height: 300px;
   }
 
-  @media (min-width: 640px) {
-    main {
+  @media (max-width: 640px) {
+    :global(html) {
+      background-size: 700px;
+    }
+
+    #main-description {
       max-width: none;
+      flex-direction: column;
+    }
+    article {
+      width: unset;
+    }
+
+    #map {
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
     }
   }
 </style>

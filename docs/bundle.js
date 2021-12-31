@@ -381,14 +381,14 @@ var app = (function () {
     			img1 = element("img");
     			if (!src_url_equal(img0.src, img0_src_value = "logo.svg")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "alt", "logo");
-    			attr_dev(img0, "class", "svelte-el9ppv");
+    			attr_dev(img0, "class", "svelte-1j5e2ak");
     			add_location(img0, file$3, 1, 2, 11);
     			add_location(h1, file$3, 2, 2, 47);
     			if (!src_url_equal(img1.src, img1_src_value = "rectangle-palette.png")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "alt", "color palette");
-    			attr_dev(img1, "class", "svelte-el9ppv");
+    			attr_dev(img1, "class", "svelte-1j5e2ak");
     			add_location(img1, file$3, 4, 2, 144);
-    			attr_dev(header, "class", "svelte-el9ppv");
+    			attr_dev(header, "class", "svelte-1j5e2ak");
     			add_location(header, file$3, 0, 0, 0);
     		},
     		l: function claim(nodes) {
@@ -704,27 +704,26 @@ var app = (function () {
     			attr_dev(img0, "id", "color-palette");
     			if (!src_url_equal(img0.src, img0_src_value = "circle-palette.png")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "alt", "color palette in circles");
-    			attr_dev(img0, "class", "svelte-1rv75s3");
+    			attr_dev(img0, "class", "svelte-78nboi");
     			add_location(img0, file, 9, 6, 172);
     			add_location(b0, file, 15, 8, 303);
-    			attr_dev(p0, "class", "svelte-1rv75s3");
+    			attr_dev(p0, "class", "svelte-78nboi");
     			add_location(p0, file, 14, 6, 291);
-    			attr_dev(hr, "class", "svelte-1rv75s3");
+    			attr_dev(hr, "class", "svelte-78nboi");
     			add_location(hr, file, 18, 6, 482);
     			add_location(b1, file, 21, 30, 606);
-    			attr_dev(p1, "class", "svelte-1rv75s3");
+    			attr_dev(p1, "class", "svelte-78nboi");
     			add_location(p1, file, 19, 6, 495);
-    			attr_dev(article, "class", "svelte-1rv75s3");
+    			attr_dev(article, "class", "svelte-78nboi");
     			add_location(article, file, 8, 4, 156);
     			attr_dev(img1, "id", "map");
     			if (!src_url_equal(img1.src, img1_src_value = "map.png")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "alt", "map");
-    			attr_dev(img1, "class", "svelte-1rv75s3");
+    			attr_dev(img1, "class", "svelte-78nboi");
     			add_location(img1, file, 24, 4, 670);
     			attr_dev(section, "id", "main-description");
-    			attr_dev(section, "class", "svelte-1rv75s3");
+    			attr_dev(section, "class", "svelte-78nboi");
     			add_location(section, file, 7, 2, 120);
-    			attr_dev(main, "class", "svelte-1rv75s3");
     			add_location(main, file, 6, 0, 111);
     		},
     		l: function claim(nodes) {
