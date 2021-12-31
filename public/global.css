@@ -1,3 +1,17 @@
+/* Color variables taken directly from Figma https://www.figma.com/file/K9dgs45L7Q6XFkKnU8roK7/S%C3%A4tra-Brunn-DAO-Website?node-id=2%3A2 */
+:root {
+  --black: #343837;
+  --blackish: #303845;
+  --brown: #7d7060;
+  --blue: #9cb3d3;
+  --dark-red: #a3433b;
+  --red: #af4944;
+  --light-gray: #c4c4c4;
+  --grayish-orange: #cbbcb5;
+  --grayish-blue: #dce6ef;
+  --light-gray: #e5e5e5;
+}
+
 html,
 body {
   position: relative;
