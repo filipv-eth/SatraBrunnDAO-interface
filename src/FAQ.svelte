@@ -20,7 +20,7 @@
   {#each questions as question}
     <CollapsibleSection headerText={question.q} color={question.c}>
       {#if question.a}
-        {question.a}
+        <p>{question.a}</p>
       {:else}
         <i>Info coming soon.</i>
       {/if}
@@ -44,8 +44,7 @@
     margin-bottom: 3rem;
   }
 
-  .content {
-    background-color: #f4f4f4;
-    padding: 0.5em;
+  p {
+    font-size: large;
   }
 </style>
