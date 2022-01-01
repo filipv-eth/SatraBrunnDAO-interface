@@ -17,8 +17,6 @@
       <rect width="3" height="2" x={`${index * 3}`} fill={`var(${color})`} />
     {/each}
   </svg>
-
-  <!-- <img src="rectangle-palette.png" alt="color palette" /> -->
 </header>
 
 <style>

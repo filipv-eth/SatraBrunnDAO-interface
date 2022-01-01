@@ -167,6 +167,9 @@ var app = (function () {
     function space() {
         return text(' ');
     }
+    function empty() {
+        return text('');
+    }
     function listen(node, event, handler, options) {
         node.addEventListener(event, handler, options);
         return () => node.removeEventListener(event, handler, options);
@@ -192,6 +195,39 @@ var app = (function () {
         const e = document.createEvent('CustomEvent');
         e.initCustomEvent(type, bubbles, false, detail);
         return e;
+    }
+    class HtmlTag {
+        constructor() {
+            this.e = this.n = null;
+        }
+        c(html) {
+            this.h(html);
+        }
+        m(html, target, anchor = null) {
+            if (!this.e) {
+                this.e = element(target.nodeName);
+                this.t = target;
+                this.c(html);
+            }
+            this.i(anchor);
+        }
+        h(html) {
+            this.e.innerHTML = html;
+            this.n = Array.from(this.e.childNodes);
+        }
+        i(anchor) {
+            for (let i = 0; i < this.n.length; i += 1) {
+                insert(this.t, this.n[i], anchor);
+            }
+        }
+        p(html) {
+            this.d();
+            this.h(html);
+            this.i(this.a);
+        }
+        d() {
+            this.n.forEach(detach);
+        }
     }
 
     const active_docs = new Set();
@@ -948,22 +984,22 @@ var app = (function () {
     			a3 = element("a");
     			a3.textContent = "github";
     			attr_dev(a0, "href", "https://twitter.com/SatraBrunn");
+    			attr_dev(a0, "class", "svelte-1wqw559");
     			add_location(a0, file$4, 1, 6, 11);
-    			attr_dev(li0, "class", "svelte-30mt");
     			add_location(li0, file$4, 1, 2, 7);
     			attr_dev(a1, "href", "https://discord.gg/pQGpBAQM");
+    			attr_dev(a1, "class", "svelte-1wqw559");
     			add_location(a1, file$4, 2, 6, 75);
-    			attr_dev(li1, "class", "svelte-30mt");
     			add_location(li1, file$4, 2, 2, 71);
     			attr_dev(a2, "href", "https://satrabrunn.notion.site/S-tra-Brunn-DAO-Notion-2ecbecf19ac3455a83ef6b6206e193bc");
+    			attr_dev(a2, "class", "svelte-1wqw559");
     			add_location(a2, file$4, 4, 6, 240);
-    			attr_dev(li2, "class", "svelte-30mt");
     			add_location(li2, file$4, 4, 2, 236);
     			attr_dev(a3, "href", "https://github.com/filipv-eth/SatraBrunnDAO-interface");
+    			attr_dev(a3, "class", "svelte-1wqw559");
     			add_location(a3, file$4, 5, 6, 359);
-    			attr_dev(li3, "class", "svelte-30mt");
     			add_location(li3, file$4, 5, 2, 355);
-    			attr_dev(ul, "class", "svelte-30mt");
+    			attr_dev(ul, "class", "svelte-1wqw559");
     			add_location(ul, file$4, 0, 0, 0);
     		},
     		l: function claim(nodes) {
@@ -1464,7 +1500,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (26:8) {:else}
+    // (50:8) {:else}
     function create_else_block(ctx) {
     	let i;
     	let i_transition;
@@ -1474,7 +1510,7 @@ var app = (function () {
     		c: function create() {
     			i = element("i");
     			i.textContent = "Info coming soon.";
-    			add_location(i, file$1, 26, 10, 1197);
+    			add_location(i, file$1, 50, 10, 3624);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, i, anchor);
@@ -1506,30 +1542,35 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(26:8) {:else}",
+    		source: "(50:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (24:8) {#if question.a}
+    // (48:8) {#if question.a}
     function create_if_block(ctx) {
-    	let t_value = /*question*/ ctx[1].a + "";
-    	let t;
+    	let html_tag;
+    	let raw_value = /*question*/ ctx[1].a + "";
+    	let html_anchor;
 
     	const block = {
     		c: function create() {
-    			t = text(t_value);
+    			html_tag = new HtmlTag();
+    			html_anchor = empty();
+    			html_tag.a = html_anchor;
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, t, anchor);
+    			html_tag.m(raw_value, target, anchor);
+    			insert_dev(target, html_anchor, anchor);
     		},
     		p: noop,
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(t);
+    			if (detaching) detach_dev(html_anchor);
+    			if (detaching) html_tag.d();
     		}
     	};
 
@@ -1537,14 +1578,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(24:8) {#if question.a}",
+    		source: "(48:8) {#if question.a}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (22:4) <CollapsibleSection headerText={question.q} color={question.c}>
+    // (46:4) <CollapsibleSection headerText={question.q} color={question.c}>
     function create_default_slot(ctx) {
     	let p;
     	let current_block_type_index;
@@ -1569,7 +1610,7 @@ var app = (function () {
     			if_block.c();
     			t = space();
     			attr_dev(p, "class", "svelte-i0m3lr");
-    			add_location(p, file$1, 22, 6, 1102);
+    			add_location(p, file$1, 46, 6, 3523);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1609,14 +1650,14 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(22:4) <CollapsibleSection headerText={question.q} color={question.c}>",
+    		source: "(46:4) <CollapsibleSection headerText={question.q} color={question.c}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (21:2) {#each questions as question}
+    // (45:2) {#each questions as question}
     function create_each_block(ctx) {
     	let collapsiblesection;
     	let current;
@@ -1666,7 +1707,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(21:2) {#each questions as question}",
+    		source: "(45:2) {#each questions as question}",
     		ctx
     	});
 
@@ -1697,7 +1738,7 @@ var app = (function () {
     			}
 
     			attr_dev(section, "class", "svelte-i0m3lr");
-    			add_location(section, file$1, 19, 0, 986);
+    			add_location(section, file$1, 43, 0, 3407);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1782,25 +1823,37 @@ var app = (function () {
     	let questions = [
     		{
     			q: "What is a DAO?",
-    			a: "DAO stands for decentralized autonomous organization. A DAO is an entity with no central leadership and little or no hierarchical management, where proposals are instead made from individual contributors and voted on by the community. A DAO is represented by a program called a smart contract that defines the rules with which the DAO operates. The financial records and smart contract for a DAO are both typically stored on a blockchain.",
+    			a: "DAO stands for decentralized autonomous organization. A DAO is an entity with no central leadership and little or no hierarchical management, where proposals are instead made from individual contributors and voted on by the community. A DAO is represented by a program called a <i>smart contract</i> that defines the rules with which the DAO operates. The financial records and smart contract for a DAO are both typically stored on a blockchain.",
     			c: "--red"
     		},
     		{
     			q: "How will Sätra Brunn DAO raise money?",
+    			a: 'Sätra Brunn DAO will be using <a href="https://juicebox.money/">Juicebox</a>, a powerful and lightweight programmable treasury that allows contributors to donate ETH in exchange for tokens. These tokens can then be used to vote within the DAO, meaning that governance power rests in the hands of those who donate their resources, time, and effort to the DAO.',
     			c: "--blue"
     		},
     		{
     			q: "Why Sätra Brunn?",
+    			a: `Sätra Brunn has the potential to become a major hub for the European web3 community. With rapidly increasing demand for in-person web3 meeting spaces, infrastructure like Sätra Brunn’s is quickly becoming vital to the ecosystem. The village not only hosts over 3,600 attendees at conferences each year, but features 70 buildings including a fully operational beverage production company, a bathhouse and spa, and numerous lodging options. <br><br> Sätra Brunn is not just one of the preeminent wellness destinations in Europe—it is a loving community with 320 years of history behind it, with the potential to play a major role in the web3 revolution.`,
     			c: "--grayish-blue"
     		},
-    		{ q: "How can I join?", c: "--light-gray" },
+    		{
+    			q: "How can I join?",
+    			a: `If you would like to become a contributor, take a look at <a href="https://www.notion.so/How-to-Get-Started-f8169ff245c9443bb87bd9ed86155975">How to Get Started</a> on the <a href="https://www.notion.so/2ecbecf19ac3455a83ef6b6206e193bc">Sätra Brunn DAO Notion</a>.`,
+    			c: "--light-gray"
+    		},
     		{
     			q: "Is there a roadmap?",
+    			a: `Sätra Brunn DAO is focused on the long term sustainability of this project—our primary goal is to preserve the history and legacy of Sätra Brunn, and to solidify Sätra Brunn as a venue for the future of art and technology. <br><br> The first phase of this project will be centered around fundraising and awareness within the web3 community. Longer term, we are focused on preparing for the transition in ownership, growing our team of builders and contributors, and preserving Sätra Brunn’s community and values.`,
     			c: "--grayish-orange"
     		},
-    		{ q: "When can I donate?", c: "--brown" },
+    		{
+    			q: "When can I donate?",
+    			a: "Contributors are working around the clock to guarantee the sustainability of this project, and donations are expected to open up in the next 2-5 days.",
+    			c: "--brown"
+    		},
     		{
     			q: "Where can I learn more?",
+    			a: `To learn more, you can take a look at our <a href="https://www.notion.so/S-tra-Brunn-DAO-Notion-2ecbecf19ac3455a83ef6b6206e193bc)">Notion</a>, follow us on <a href="https://twitter.com/SatraBrunn">Twitter</a>, and join the discussion in our <a href="http://discord.gg/ZMtXgYrm5N">Discord server</a>!`,
     			c: "--black"
     		}
     	];
