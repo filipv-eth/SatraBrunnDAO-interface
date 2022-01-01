@@ -57,6 +57,10 @@
     width: 50%;
   }
 
+  main {
+    margin-bottom: 4rem;
+  }
+
   img {
     width: 300px;
   }
