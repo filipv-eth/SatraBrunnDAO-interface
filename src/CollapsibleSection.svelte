@@ -27,8 +27,8 @@
       </svg>
       <h2>{headerText}</h2>
 
-      <svg viewbox="0 0 100 100" stroke="black"
-        ><circle cx="50" cy="50" r="50" fill={`var(${color})`} /></svg
+      <svg viewbox="0 0 100 100" stroke="#343837" stroke-width="3px"
+        ><circle cx="50" cy="50" r="48" fill={`var(${color})`} /></svg
       >
     </button>
   </h3>
@@ -62,7 +62,7 @@
   }
 
   button[aria-expanded="true"] {
-    border-bottom: 1px solid var(--gray-light, black);
+    border-bottom: 1px solid #343837;
   }
 
   svg {
@@ -75,7 +75,7 @@
   }
 
   .collapsible {
-    border-bottom: 1px solid var(--gray-light, black);
+    border-bottom: 1px solid #343837;
   }
   .contents {
     padding: 1rem;

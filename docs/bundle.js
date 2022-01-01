@@ -1265,25 +1265,26 @@ var app = (function () {
     			attr_dev(path, "fill", "#343837");
     			add_location(path, file$2, 22, 8, 653);
     			set_svg_attributes(svg0, svg0_data);
-    			toggle_class(svg0, "svelte-1bmowwr", true);
+    			toggle_class(svg0, "svelte-1ylejgb", true);
     			add_location(svg0, file$2, 14, 7, 438);
-    			attr_dev(h2, "class", "svelte-1bmowwr");
+    			attr_dev(h2, "class", "svelte-1ylejgb");
     			add_location(h2, file$2, 27, 6, 1068);
     			attr_dev(circle, "cx", "50");
     			attr_dev(circle, "cy", "50");
-    			attr_dev(circle, "r", "50");
+    			attr_dev(circle, "r", "48");
     			attr_dev(circle, "fill", circle_fill_value = `var(${/*color*/ ctx[0]})`);
-    			add_location(circle, file$2, 30, 9, 1148);
+    			add_location(circle, file$2, 30, 9, 1169);
     			attr_dev(svg1, "viewBox", "0 0 100 100");
-    			attr_dev(svg1, "stroke", "black");
-    			attr_dev(svg1, "class", "svelte-1bmowwr");
+    			attr_dev(svg1, "stroke", "#343837");
+    			attr_dev(svg1, "stroke-width", "3px");
+    			attr_dev(svg1, "class", "svelte-1ylejgb");
     			add_location(svg1, file$2, 29, 6, 1097);
     			attr_dev(button, "aria-expanded", /*expanded*/ ctx[2]);
-    			attr_dev(button, "class", "svelte-1bmowwr");
+    			attr_dev(button, "class", "svelte-1ylejgb");
     			add_location(button, file$2, 13, 4, 358);
-    			attr_dev(h3, "class", "svelte-1bmowwr");
+    			attr_dev(h3, "class", "svelte-1ylejgb");
     			add_location(h3, file$2, 12, 2, 349);
-    			attr_dev(div, "class", "collapsible svelte-1bmowwr");
+    			attr_dev(div, "class", "collapsible svelte-1ylejgb");
     			add_location(div, file$2, 11, 0, 321);
     		},
     		l: function claim(nodes) {
@@ -1322,7 +1323,7 @@ var app = (function () {
     				{ xmlns: "http://www.w3.org/2000/svg" }
     			]));
 
-    			toggle_class(svg0, "svelte-1bmowwr", true);
+    			toggle_class(svg0, "svelte-1ylejgb", true);
     			if (!current || dirty & /*headerText*/ 2) set_data_dev(t1, /*headerText*/ ctx[1]);
 
     			if (!current || dirty & /*color*/ 1 && circle_fill_value !== (circle_fill_value = `var(${/*color*/ ctx[0]})`)) {
@@ -1953,26 +1954,27 @@ var app = (function () {
     			attr_dev(img0, "id", "color-palette");
     			if (!src_url_equal(img0.src, img0_src_value = "circle-palette.png")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "alt", "color palette in circles");
-    			attr_dev(img0, "class", "svelte-yk6fu1");
+    			attr_dev(img0, "class", "svelte-1h0julj");
     			add_location(img0, file, 10, 6, 206);
     			add_location(b0, file, 16, 8, 337);
-    			attr_dev(p0, "class", "svelte-yk6fu1");
+    			attr_dev(p0, "class", "svelte-1h0julj");
     			add_location(p0, file, 15, 6, 325);
-    			attr_dev(hr, "class", "svelte-yk6fu1");
+    			attr_dev(hr, "class", "svelte-1h0julj");
     			add_location(hr, file, 19, 6, 516);
     			add_location(b1, file, 22, 30, 640);
-    			attr_dev(p1, "class", "svelte-yk6fu1");
+    			attr_dev(p1, "class", "svelte-1h0julj");
     			add_location(p1, file, 20, 6, 529);
-    			attr_dev(article, "class", "svelte-yk6fu1");
+    			attr_dev(article, "class", "svelte-1h0julj");
     			add_location(article, file, 9, 4, 190);
     			attr_dev(img1, "id", "map");
     			if (!src_url_equal(img1.src, img1_src_value = "map.png")) attr_dev(img1, "src", img1_src_value);
     			attr_dev(img1, "alt", "map");
-    			attr_dev(img1, "class", "svelte-yk6fu1");
+    			attr_dev(img1, "class", "svelte-1h0julj");
     			add_location(img1, file, 25, 4, 704);
     			attr_dev(section, "id", "main-description");
-    			attr_dev(section, "class", "svelte-yk6fu1");
+    			attr_dev(section, "class", "svelte-1h0julj");
     			add_location(section, file, 8, 2, 154);
+    			attr_dev(main, "class", "svelte-1h0julj");
     			add_location(main, file, 7, 0, 145);
     		},
     		l: function claim(nodes) {

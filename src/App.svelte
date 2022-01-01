@@ -69,7 +69,7 @@
   }
 
   hr {
-    border: 1px solid gray;
+    border: 1px solid #343837;
   }
 
   #color-palette {
