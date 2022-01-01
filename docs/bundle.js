@@ -743,53 +743,132 @@ var app = (function () {
 
     const file$5 = "src/Header.svelte";
 
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[1] = list[i];
+    	child_ctx[3] = i;
+    	return child_ctx;
+    }
+
+    // (16:4) {#each colors as color, index}
+    function create_each_block$1(ctx) {
+    	let rect;
+
+    	const block = {
+    		c: function create() {
+    			rect = svg_element("rect");
+    			attr_dev(rect, "width", "3");
+    			attr_dev(rect, "height", "2");
+    			attr_dev(rect, "x", `${/*index*/ ctx[3] * 3}`);
+    			attr_dev(rect, "fill", `var(${/*color*/ ctx[1]})`);
+    			add_location(rect, file$5, 16, 6, 308);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, rect, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(rect);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$1.name,
+    		type: "each",
+    		source: "(16:4) {#each colors as color, index}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$5(ctx) {
     	let header;
-    	let img0;
-    	let img0_src_value;
+    	let img;
+    	let img_src_value;
     	let t0;
     	let h1;
     	let t2;
-    	let img1;
-    	let img1_src_value;
+    	let svg;
+    	let each_value = /*colors*/ ctx[0];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	}
 
     	const block = {
     		c: function create() {
     			header = element("header");
-    			img0 = element("img");
+    			img = element("img");
     			t0 = space();
     			h1 = element("h1");
     			h1.textContent = "Sätra Brunn DAO";
     			t2 = space();
-    			img1 = element("img");
-    			if (!src_url_equal(img0.src, img0_src_value = "logo.svg")) attr_dev(img0, "src", img0_src_value);
-    			attr_dev(img0, "alt", "logo");
-    			attr_dev(img0, "class", "svelte-1j5e2ak");
-    			add_location(img0, file$5, 1, 2, 11);
-    			add_location(h1, file$5, 2, 2, 47);
-    			if (!src_url_equal(img1.src, img1_src_value = "rectangle-palette.png")) attr_dev(img1, "src", img1_src_value);
-    			attr_dev(img1, "alt", "color palette");
-    			attr_dev(img1, "class", "svelte-1j5e2ak");
-    			add_location(img1, file$5, 4, 2, 144);
-    			attr_dev(header, "class", "svelte-1j5e2ak");
-    			add_location(header, file$5, 0, 0, 0);
+    			svg = svg_element("svg");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			if (!src_url_equal(img.src, img_src_value = "logo.svg")) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", "logo");
+    			attr_dev(img, "class", "svelte-zjcuxb");
+    			add_location(img, file$5, 12, 2, 159);
+    			add_location(h1, file$5, 13, 2, 195);
+    			attr_dev(svg, "viewBox", `0 0 ${/*colors*/ ctx[0].length * 3} 2`);
+    			attr_dev(svg, "class", "svelte-zjcuxb");
+    			add_location(svg, file$5, 14, 2, 222);
+    			attr_dev(header, "class", "svelte-zjcuxb");
+    			add_location(header, file$5, 11, 0, 148);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, header, anchor);
-    			append_dev(header, img0);
+    			append_dev(header, img);
     			append_dev(header, t0);
     			append_dev(header, h1);
     			append_dev(header, t2);
-    			append_dev(header, img1);
+    			append_dev(header, svg);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(svg, null);
+    			}
     		},
-    		p: noop,
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*colors*/ 1) {
+    				each_value = /*colors*/ ctx[0];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(svg, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(header);
+    			destroy_each(each_blocks, detaching);
     		}
     	};
 
@@ -804,16 +883,18 @@ var app = (function () {
     	return block;
     }
 
-    function instance$5($$self, $$props) {
+    function instance$5($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Header', slots, []);
+    	const colors = ["--blue", "--blackish", "--grayish-orange", "--brown", "--dark-red", "--black"];
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Header> was created with unknown prop '${key}'`);
     	});
 
-    	return [];
+    	$$self.$capture_state = () => ({ colors });
+    	return [colors];
     }
 
     class Header extends SvelteComponentDev {
