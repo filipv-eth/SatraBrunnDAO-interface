@@ -1,6 +1,7 @@
 <script>
   import Header from "./Header.svelte";
   import Footer from "./Footer.svelte";
+  import FAQ from './FAQ.svelte';
 </script>
 
 <Header />
@@ -24,6 +25,7 @@
     </article>
     <img id="map" src="map.png" alt="map" />
   </section>
+  <FAQ />
 </main>
 <Footer />
 

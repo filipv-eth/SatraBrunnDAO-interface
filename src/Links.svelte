@@ -15,7 +15,7 @@
         font-size: 1.25rem;
         padding-inline-start: 0;
     }
-    li {
+    a {
         color: var(--grayish-orange);
     }
 </style>
