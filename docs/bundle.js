@@ -124,8 +124,16 @@ var app = (function () {
         else if (node.getAttribute(attribute) !== value)
             node.setAttribute(attribute, value);
     }
+    function set_svg_attributes(node, attributes) {
+        for (const key in attributes) {
+            attr(node, key, attributes[key]);
+        }
+    }
     function children(element) {
         return Array.from(element.childNodes);
+    }
+    function toggle_class(element, name, toggle) {
+        element.classList[toggle ? 'add' : 'remove'](name);
     }
     function custom_event(type, detail, bubbles = false) {
         const e = document.createEvent('CustomEvent');
@@ -255,6 +263,40 @@ var app = (function () {
             });
             block.o(local);
         }
+    }
+
+    function get_spread_update(levels, updates) {
+        const update = {};
+        const to_null_out = {};
+        const accounted_for = { $$scope: 1 };
+        let i = levels.length;
+        while (i--) {
+            const o = levels[i];
+            const n = updates[i];
+            if (n) {
+                for (const key in o) {
+                    if (!(key in n))
+                        to_null_out[key] = 1;
+                }
+                for (const key in n) {
+                    if (!accounted_for[key]) {
+                        update[key] = n[key];
+                        accounted_for[key] = 1;
+                    }
+                }
+                levels[i] = n;
+            }
+            else {
+                for (const key in o) {
+                    accounted_for[key] = 1;
+                }
+            }
+        }
+        for (const key in to_null_out) {
+            if (!(key in update))
+                update[key] = undefined;
+        }
+        return update;
     }
     function create_component(block) {
         block && block.c();
@@ -766,60 +808,85 @@ var app = (function () {
     	let div1;
     	let h3;
     	let button;
-    	let h2;
+    	let svg0;
+    	let path;
     	let t0;
+    	let h2;
     	let t1;
-    	let svg;
-    	let path0;
-    	let path1;
     	let t2;
+    	let svg1;
+    	let circle;
+    	let circle_fill_value;
+    	let t3;
     	let div0;
     	let div0_hidden_value;
     	let current;
     	let mounted;
     	let dispose;
-    	const default_slot_template = /*#slots*/ ctx[3].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[2], null);
+
+    	let svg0_levels = [
+    		{ width: "21" },
+    		{ height: "16" },
+    		{ viewBox: "0 0 21 16" },
+    		{ fill: "none" },
+    		{
+    			transform: /*expanded*/ ctx[2] ? "rotate(90)" : undefined
+    		},
+    		{ xmlns: "http://www.w3.org/2000/svg" }
+    	];
+
+    	let svg0_data = {};
+
+    	for (let i = 0; i < svg0_levels.length; i += 1) {
+    		svg0_data = assign(svg0_data, svg0_levels[i]);
+    	}
+
+    	const default_slot_template = /*#slots*/ ctx[4].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
 
     	const block = {
     		c: function create() {
     			div1 = element("div");
     			h3 = element("h3");
     			button = element("button");
+    			svg0 = svg_element("svg");
+    			path = svg_element("path");
+    			t0 = space();
     			h2 = element("h2");
-    			t0 = text(/*headerText*/ ctx[0]);
-    			t1 = space();
-    			svg = svg_element("svg");
-    			path0 = svg_element("path");
-    			path1 = svg_element("path");
+    			t1 = text(/*headerText*/ ctx[0]);
     			t2 = space();
+    			svg1 = svg_element("svg");
+    			circle = svg_element("circle");
+    			t3 = space();
     			div0 = element("div");
     			if (default_slot) default_slot.c();
-    			attr_dev(h2, "class", "svelte-1wjq24v");
-    			add_location(h2, file$2, 11, 7, 323);
-    			attr_dev(path0, "class", "vert svelte-1wjq24v");
-    			attr_dev(path0, "d", "M10 1V19");
-    			attr_dev(path0, "stroke", "black");
-    			attr_dev(path0, "stroke-width", "2");
-    			add_location(path0, file$2, 13, 8, 397);
-    			attr_dev(path1, "d", "M1 10L19 10");
-    			attr_dev(path1, "stroke", "black");
-    			attr_dev(path1, "stroke-width", "2");
-    			add_location(path1, file$2, 14, 8, 472);
-    			attr_dev(svg, "viewBox", "0 0 20 20");
-    			attr_dev(svg, "fill", "none");
-    			attr_dev(svg, "class", "svelte-1wjq24v");
-    			add_location(svg, file$2, 12, 6, 351);
-    			attr_dev(button, "aria-expanded", /*expanded*/ ctx[1]);
-    			attr_dev(button, "class", "svelte-1wjq24v");
-    			add_location(button, file$2, 10, 4, 243);
-    			attr_dev(h3, "class", "svelte-1wjq24v");
-    			add_location(h3, file$2, 9, 2, 234);
-    			attr_dev(div0, "class", "contents");
-    			div0.hidden = div0_hidden_value = !/*expanded*/ ctx[1];
-    			add_location(div0, file$2, 19, 2, 567);
-    			attr_dev(div1, "class", "collapsible svelte-1wjq24v");
-    			add_location(div1, file$2, 8, 0, 206);
+    			attr_dev(path, "d", "M20.7071 8.70711C21.0976 8.31658 21.0976 7.68342 20.7071 7.29289L14.3431 0.928932C13.9526 0.538408 13.3195 0.538408 12.9289 0.928932C12.5384 1.31946 12.5384 1.95262 12.9289 2.34315L18.5858 8L12.9289 13.6569C12.5384 14.0474 12.5384 14.6805 12.9289 15.0711C13.3195 15.4616 13.9526 15.4616 14.3431 15.0711L20.7071 8.70711ZM0 9L20 9V7L0 7L0 9Z");
+    			attr_dev(path, "fill", "#343837");
+    			add_location(path, file$2, 22, 8, 653);
+    			set_svg_attributes(svg0, svg0_data);
+    			toggle_class(svg0, "svelte-qls5nt", true);
+    			add_location(svg0, file$2, 14, 7, 438);
+    			attr_dev(h2, "class", "svelte-qls5nt");
+    			add_location(h2, file$2, 27, 6, 1068);
+    			attr_dev(circle, "cx", "50");
+    			attr_dev(circle, "cy", "50");
+    			attr_dev(circle, "r", "50");
+    			attr_dev(circle, "fill", circle_fill_value = `var(${/*color*/ ctx[1]})`);
+    			add_location(circle, file$2, 30, 9, 1148);
+    			attr_dev(svg1, "viewBox", "0 0 100 100");
+    			attr_dev(svg1, "stroke", "black");
+    			attr_dev(svg1, "class", "svelte-qls5nt");
+    			add_location(svg1, file$2, 29, 6, 1097);
+    			attr_dev(button, "aria-expanded", /*expanded*/ ctx[2]);
+    			attr_dev(button, "class", "svelte-qls5nt");
+    			add_location(button, file$2, 13, 4, 358);
+    			attr_dev(h3, "class", "svelte-qls5nt");
+    			add_location(h3, file$2, 12, 2, 349);
+    			attr_dev(div0, "class", "contents svelte-qls5nt");
+    			div0.hidden = div0_hidden_value = !/*expanded*/ ctx[2];
+    			add_location(div0, file$2, 35, 2, 1243);
+    			attr_dev(div1, "class", "collapsible svelte-qls5nt");
+    			add_location(div1, file$2, 11, 0, 321);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -828,13 +895,15 @@ var app = (function () {
     			insert_dev(target, div1, anchor);
     			append_dev(div1, h3);
     			append_dev(h3, button);
+    			append_dev(button, svg0);
+    			append_dev(svg0, path);
+    			append_dev(button, t0);
     			append_dev(button, h2);
-    			append_dev(h2, t0);
-    			append_dev(button, t1);
-    			append_dev(button, svg);
-    			append_dev(svg, path0);
-    			append_dev(svg, path1);
-    			append_dev(div1, t2);
+    			append_dev(h2, t1);
+    			append_dev(button, t2);
+    			append_dev(button, svg1);
+    			append_dev(svg1, circle);
+    			append_dev(div1, t3);
     			append_dev(div1, div0);
 
     			if (default_slot) {
@@ -844,33 +913,49 @@ var app = (function () {
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*click_handler*/ ctx[4], false, false, false);
+    				dispose = listen_dev(button, "click", /*click_handler*/ ctx[5], false, false, false);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (!current || dirty & /*headerText*/ 1) set_data_dev(t0, /*headerText*/ ctx[0]);
+    			set_svg_attributes(svg0, svg0_data = get_spread_update(svg0_levels, [
+    				{ width: "21" },
+    				{ height: "16" },
+    				{ viewBox: "0 0 21 16" },
+    				{ fill: "none" },
+    				dirty & /*expanded*/ 4 && {
+    					transform: /*expanded*/ ctx[2] ? "rotate(90)" : undefined
+    				},
+    				{ xmlns: "http://www.w3.org/2000/svg" }
+    			]));
 
-    			if (!current || dirty & /*expanded*/ 2) {
-    				attr_dev(button, "aria-expanded", /*expanded*/ ctx[1]);
+    			toggle_class(svg0, "svelte-qls5nt", true);
+    			if (!current || dirty & /*headerText*/ 1) set_data_dev(t1, /*headerText*/ ctx[0]);
+
+    			if (!current || dirty & /*color*/ 2 && circle_fill_value !== (circle_fill_value = `var(${/*color*/ ctx[1]})`)) {
+    				attr_dev(circle, "fill", circle_fill_value);
+    			}
+
+    			if (!current || dirty & /*expanded*/ 4) {
+    				attr_dev(button, "aria-expanded", /*expanded*/ ctx[2]);
     			}
 
     			if (default_slot) {
-    				if (default_slot.p && (!current || dirty & /*$$scope*/ 4)) {
+    				if (default_slot.p && (!current || dirty & /*$$scope*/ 8)) {
     					update_slot_base(
     						default_slot,
     						default_slot_template,
     						ctx,
-    						/*$$scope*/ ctx[2],
+    						/*$$scope*/ ctx[3],
     						!current
-    						? get_all_dirty_from_scope(/*$$scope*/ ctx[2])
-    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[2], dirty, null),
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[3])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[3], dirty, null),
     						null
     					);
     				}
     			}
 
-    			if (!current || dirty & /*expanded*/ 2 && div0_hidden_value !== (div0_hidden_value = !/*expanded*/ ctx[1])) {
+    			if (!current || dirty & /*expanded*/ 4 && div0_hidden_value !== (div0_hidden_value = !/*expanded*/ ctx[2])) {
     				prop_dev(div0, "hidden", div0_hidden_value);
     			}
     		},
@@ -906,38 +991,41 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('CollapsibleSection', slots, ['default']);
     	let { headerText } = $$props;
+    	let { color } = $$props;
     	let expanded = false;
-    	const writable_props = ['headerText'];
+    	const writable_props = ['headerText', 'color'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<CollapsibleSection> was created with unknown prop '${key}'`);
     	});
 
-    	const click_handler = () => $$invalidate(1, expanded = !expanded);
+    	const click_handler = () => $$invalidate(2, expanded = !expanded);
 
     	$$self.$$set = $$props => {
     		if ('headerText' in $$props) $$invalidate(0, headerText = $$props.headerText);
-    		if ('$$scope' in $$props) $$invalidate(2, $$scope = $$props.$$scope);
+    		if ('color' in $$props) $$invalidate(1, color = $$props.color);
+    		if ('$$scope' in $$props) $$invalidate(3, $$scope = $$props.$$scope);
     	};
 
-    	$$self.$capture_state = () => ({ headerText, expanded });
+    	$$self.$capture_state = () => ({ headerText, color, expanded });
 
     	$$self.$inject_state = $$props => {
     		if ('headerText' in $$props) $$invalidate(0, headerText = $$props.headerText);
-    		if ('expanded' in $$props) $$invalidate(1, expanded = $$props.expanded);
+    		if ('color' in $$props) $$invalidate(1, color = $$props.color);
+    		if ('expanded' in $$props) $$invalidate(2, expanded = $$props.expanded);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [headerText, expanded, $$scope, slots, click_handler];
+    	return [headerText, color, expanded, $$scope, slots, click_handler];
     }
 
     class CollapsibleSection extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$2, create_fragment$2, safe_not_equal, { headerText: 0 });
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, { headerText: 0, color: 1 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -952,6 +1040,10 @@ var app = (function () {
     		if (/*headerText*/ ctx[0] === undefined && !('headerText' in props)) {
     			console.warn("<CollapsibleSection> was created without expected prop 'headerText'");
     		}
+
+    		if (/*color*/ ctx[1] === undefined && !('color' in props)) {
+    			console.warn("<CollapsibleSection> was created without expected prop 'color'");
+    		}
     	}
 
     	get headerText() {
@@ -959,6 +1051,14 @@ var app = (function () {
     	}
 
     	set headerText(value) {
+    		throw new Error("<CollapsibleSection>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get color() {
+    		throw new Error("<CollapsibleSection>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set color(value) {
     		throw new Error("<CollapsibleSection>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -972,7 +1072,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (23:6) {:else}
+    // (24:6) {:else}
     function create_else_block(ctx) {
     	let i;
 
@@ -980,7 +1080,7 @@ var app = (function () {
     		c: function create() {
     			i = element("i");
     			i.textContent = "Info coming soon.";
-    			add_location(i, file$1, 23, 8, 976);
+    			add_location(i, file$1, 24, 8, 1117);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, i, anchor);
@@ -995,14 +1095,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(23:6) {:else}",
+    		source: "(24:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (21:6) {#if question.a}
+    // (22:6) {#if question.a}
     function create_if_block(ctx) {
     	let t_value = /*question*/ ctx[1].a + "";
     	let t;
@@ -1024,14 +1124,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(21:6) {#if question.a}",
+    		source: "(22:6) {#if question.a}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (20:4) <CollapsibleSection headerText={question.q}>
+    // (21:4) <CollapsibleSection headerText={question.q} color={question.c}>
     function create_default_slot(ctx) {
     	let t;
 
@@ -1065,14 +1165,14 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(20:4) <CollapsibleSection headerText={question.q}>",
+    		source: "(21:4) <CollapsibleSection headerText={question.q} color={question.c}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (19:2) {#each questions as question}
+    // (20:2) {#each questions as question}
     function create_each_block(ctx) {
     	let collapsiblesection;
     	let current;
@@ -1080,6 +1180,7 @@ var app = (function () {
     	collapsiblesection = new CollapsibleSection({
     			props: {
     				headerText: /*question*/ ctx[1].q,
+    				color: /*question*/ ctx[1].c,
     				$$slots: { default: [create_default_slot] },
     				$$scope: { ctx }
     			},
@@ -1121,7 +1222,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(19:2) {#each questions as question}",
+    		source: "(20:2) {#each questions as question}",
     		ctx
     	});
 
@@ -1151,8 +1252,8 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(section, "class", "svelte-12d5ghx");
-    			add_location(section, file$1, 17, 0, 819);
+    			attr_dev(section, "class", "svelte-hf5lmt");
+    			add_location(section, file$1, 18, 0, 941);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1237,16 +1338,27 @@ var app = (function () {
     	let questions = [
     		{
     			q: "What is a DAO?",
-    			a: "DAO stands for decentralized autonomous organization. A DAO is an entity with no central leadership and little or no hierarchical management, where proposals are instead made from individual contributors and voted on by the community. A DAO is represented by a program called a smart contract that defines the rules with which the DAO operates. The financial records and smart contract for a DAO are both typically stored on a blockchain."
+    			a: "DAO stands for decentralized autonomous organization. A DAO is an entity with no central leadership and little or no hierarchical management, where proposals are instead made from individual contributors and voted on by the community. A DAO is represented by a program called a smart contract that defines the rules with which the DAO operates. The financial records and smart contract for a DAO are both typically stored on a blockchain.",
+    			c: "--red"
     		},
     		{
-    			q: "How will Sätra Brunn DAO raise money?"
+    			q: "How will Sätra Brunn DAO raise money?",
+    			c: "--blue"
     		},
-    		{ q: "Why Sätra Brunn?" },
-    		{ q: "How can I join?" },
-    		{ q: "Is there a roadmap?" },
-    		{ q: "When can I donate?" },
-    		{ q: "Where can I learn more?" }
+    		{
+    			q: "Why Sätra Brunn?",
+    			c: "--grayish-blue"
+    		},
+    		{ q: "How can I join?", c: "--light-gray" },
+    		{
+    			q: "Is there a roadmap?",
+    			c: "--grayish-orange"
+    		},
+    		{ q: "When can I donate?", c: "--brown" },
+    		{
+    			q: "Where can I learn more?",
+    			c: "--black"
+    		}
     	];
 
     	const writable_props = [];
