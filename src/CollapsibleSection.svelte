@@ -17,7 +17,6 @@
         height="16"
         viewBox="0 0 21 16"
         fill="none"
-        {...{ transform: expanded ? "rotate(90)" : undefined }}
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -70,11 +69,11 @@
     width: 1.5rem;
   }
 
-  svg:last-of-type {
-    margin-left: auto;
+  button[aria-expanded="true"] svg {
+    transform: rotate(90deg);
   }
 
-  .contents {
-    padding: 1rem;
+  svg:last-of-type {
+    margin-left: auto;
   }
 </style>
