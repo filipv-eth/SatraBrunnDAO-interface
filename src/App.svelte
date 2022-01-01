@@ -41,7 +41,7 @@
       linear-gradient(0deg, #dce6ef, #dce6ef);
     background-position: bottom;
     background-repeat: repeat-x;
-    /* background-size: 800px; */
+    background-size: 800px;
   }
 
   #main-description {
