@@ -1510,7 +1510,7 @@ var app = (function () {
     		c: function create() {
     			i = element("i");
     			i.textContent = "Info coming soon.";
-    			add_location(i, file$1, 50, 10, 3624);
+    			add_location(i, file$1, 50, 10, 3626);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, i, anchor);
@@ -1610,7 +1610,7 @@ var app = (function () {
     			if_block.c();
     			t = space();
     			attr_dev(p, "class", "svelte-i0m3lr");
-    			add_location(p, file$1, 46, 6, 3523);
+    			add_location(p, file$1, 46, 6, 3525);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1738,7 +1738,7 @@ var app = (function () {
     			}
 
     			attr_dev(section, "class", "svelte-i0m3lr");
-    			add_location(section, file$1, 43, 0, 3407);
+    			add_location(section, file$1, 43, 0, 3409);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1833,7 +1833,7 @@ var app = (function () {
     		},
     		{
     			q: "Why Sätra Brunn?",
-    			a: `Sätra Brunn has the potential to become a major hub for the European web3 community. With rapidly increasing demand for in-person web3 meeting spaces, infrastructure like Sätra Brunn’s is quickly becoming vital to the ecosystem. The village not only hosts over 3,600 attendees at conferences each year, but features 70 buildings including a fully operational beverage production company, a bathhouse and spa, and numerous lodging options. <br><br> Sätra Brunn is not just one of the preeminent wellness destinations in Europe—it is a loving community with 320 years of history behind it, with the potential to play a major role in the web3 revolution.`,
+    			a: `Sätra Brunn has the potential to become a major hub for the European web3 community. With rapidly increasing demand for in-person web3 meeting spaces, infrastructure like Sätra Brunn’s is quickly becoming vital to the ecosystem. The village not only hosts over 3,600 attendees at conferences each year, but features 70 buildings including a fully operational beverage production company, a bathhouse and spa, and numerous lodging options. <br><br> Sätra Brunn is not just one of the preeminent wellness destinations in Europe — it is a loving community with 320 years of history behind it, with the potential to play a major role in the web3 revolution.`,
     			c: "--grayish-blue"
     		},
     		{
