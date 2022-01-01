@@ -732,9 +732,9 @@ var app = (function () {
     			footer = element("footer");
     			nav = element("nav");
     			create_component(links.$$.fragment);
-    			attr_dev(nav, "class", "svelte-rq22xt");
+    			attr_dev(nav, "class", "svelte-km89hq");
     			add_location(nav, file$3, 5, 4, 73);
-    			attr_dev(footer, "class", "svelte-rq22xt");
+    			attr_dev(footer, "class", "svelte-km89hq");
     			add_location(footer, file$3, 4, 0, 60);
     		},
     		l: function claim(nodes) {
@@ -1080,7 +1080,7 @@ var app = (function () {
     		c: function create() {
     			i = element("i");
     			i.textContent = "Info coming soon.";
-    			add_location(i, file$1, 24, 8, 1117);
+    			add_location(i, file$1, 24, 8, 1124);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, i, anchor);
@@ -1104,19 +1104,24 @@ var app = (function () {
 
     // (22:6) {#if question.a}
     function create_if_block(ctx) {
+    	let p;
     	let t_value = /*question*/ ctx[1].a + "";
     	let t;
 
     	const block = {
     		c: function create() {
+    			p = element("p");
     			t = text(t_value);
+    			attr_dev(p, "class", "svelte-1gei3f4");
+    			add_location(p, file$1, 22, 8, 1082);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, t, anchor);
+    			insert_dev(target, p, anchor);
+    			append_dev(p, t);
     		},
     		p: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(t);
+    			if (detaching) detach_dev(p);
     		}
     	};
 
@@ -1252,7 +1257,7 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(section, "class", "svelte-hf5lmt");
+    			attr_dev(section, "class", "svelte-1gei3f4");
     			add_location(section, file$1, 18, 0, 941);
     		},
     		l: function claim(nodes) {
