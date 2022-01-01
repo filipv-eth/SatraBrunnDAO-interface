@@ -21,7 +21,7 @@
       {#if question.a}
         {question.a}
       {:else}
-        <i>Coming soon.</i>
+        <i>Info coming soon.</i>
       {/if}
     </CollapsibleSection>
   {/each}
@@ -37,8 +37,11 @@
 
 <style>
   section {
-    width: 500px;
-  }
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
 
   .content {
     background-color: #f4f4f4;

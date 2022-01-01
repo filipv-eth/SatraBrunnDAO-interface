@@ -9,7 +9,7 @@
 <div class="collapsible">
   <h3>
     <button aria-expanded={expanded} on:click={() => (expanded = !expanded)}
-      >{headerText}
+      ><h2>{headerText}</h2>
       <svg viewBox="0 0 20 20" fill="none">
         <path class="vert" d="M10 1V19" stroke="black" stroke-width="2" />
         <path d="M1 10L19 10" stroke="black" stroke-width="2" />
@@ -27,19 +27,25 @@
     border-bottom: 1px solid var(--gray-light, #eee);
   }
 
+  h2 {
+    font-weight: 400;
+    font-style: italic;
+    /* font-size: 40px; */
+  }
+
   h3 {
     margin: 0;
   }
 
   button {
-    background-color: var(--background, #fff);
+    /* background-color: var(--background, #fff); */
+    background-color: unset;
     color: var(--gray-darkest, #282828);
     display: flex;
     justify-content: space-between;
     width: 100%;
     border: none;
     margin: 0;
-    padding: 1em 0.5em;
   }
 
   button[aria-expanded="true"] {
