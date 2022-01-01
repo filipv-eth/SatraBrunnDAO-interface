@@ -42,6 +42,7 @@
   h2 {
     font-weight: 400;
     font-style: italic;
+    font-family: "Red Hat Display", sans-serif;
     margin-left: 1rem;
   }
 
