@@ -984,22 +984,22 @@ var app = (function () {
     			a3 = element("a");
     			a3.textContent = "github";
     			attr_dev(a0, "href", "https://twitter.com/SatraBrunn");
-    			attr_dev(a0, "class", "svelte-1wqw559");
+    			attr_dev(a0, "class", "svelte-z3l3l3");
     			add_location(a0, file$4, 1, 6, 11);
     			add_location(li0, file$4, 1, 2, 7);
     			attr_dev(a1, "href", "https://discord.gg/pQGpBAQM");
-    			attr_dev(a1, "class", "svelte-1wqw559");
+    			attr_dev(a1, "class", "svelte-z3l3l3");
     			add_location(a1, file$4, 2, 6, 75);
     			add_location(li1, file$4, 2, 2, 71);
     			attr_dev(a2, "href", "https://satrabrunn.notion.site/S-tra-Brunn-DAO-Notion-2ecbecf19ac3455a83ef6b6206e193bc");
-    			attr_dev(a2, "class", "svelte-1wqw559");
+    			attr_dev(a2, "class", "svelte-z3l3l3");
     			add_location(a2, file$4, 4, 6, 240);
     			add_location(li2, file$4, 4, 2, 236);
     			attr_dev(a3, "href", "https://github.com/filipv-eth/SatraBrunnDAO-interface");
-    			attr_dev(a3, "class", "svelte-1wqw559");
+    			attr_dev(a3, "class", "svelte-z3l3l3");
     			add_location(a3, file$4, 5, 6, 359);
     			add_location(li3, file$4, 5, 2, 355);
-    			attr_dev(ul, "class", "svelte-1wqw559");
+    			attr_dev(ul, "class", "svelte-z3l3l3");
     			add_location(ul, file$4, 0, 0, 0);
     		},
     		l: function claim(nodes) {
@@ -1079,9 +1079,9 @@ var app = (function () {
     			footer = element("footer");
     			nav = element("nav");
     			create_component(links.$$.fragment);
-    			attr_dev(nav, "class", "svelte-1pi4iku");
+    			attr_dev(nav, "class", "svelte-1a1iteq");
     			add_location(nav, file$3, 5, 2, 69);
-    			attr_dev(footer, "class", "svelte-1pi4iku");
+    			attr_dev(footer, "class", "svelte-1a1iteq");
     			add_location(footer, file$3, 4, 0, 58);
     		},
     		l: function claim(nodes) {

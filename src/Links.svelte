@@ -12,7 +12,7 @@
         justify-content: space-around;
         list-style-type: none;
         font-weight: 700;
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         padding-inline-start: 0;
     }
     a {

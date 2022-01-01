@@ -12,8 +12,8 @@
   nav {
     z-index: 999;
     width: 100vw;
-    max-width: 1000px;
-    padding-top: 100px;
+    max-width: 1200px;
+    padding-top: 120px;
     margin: 0 auto;
   }
   footer {
