@@ -1,8 +1,8 @@
 <script>
   // based on suggestions from:
   // Inclusive Components by Heydon Pickering https://inclusive-components.design/collapsible-sections/
-  export let headerText;
   export let color;
+  export let headerText;
 
   let expanded = false;
 </script>
@@ -33,9 +33,9 @@
     </button>
   </h3>
 
-  <div class="contents" hidden={!expanded}>
+  {#if expanded}
     <slot />
-  </div>
+  {/if}
 </div>
 
 <style>
@@ -43,7 +43,6 @@
     font-weight: 400;
     font-style: italic;
     margin-left: 1rem;
-    /* font-size: 40px; */
   }
 
   h3 {

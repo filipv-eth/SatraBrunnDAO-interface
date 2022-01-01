@@ -1,5 +1,6 @@
 <script>
   import CollapsibleSection from "./CollapsibleSection.svelte";
+  import { slide } from "svelte/transition";
 
   let questions = [
     {
@@ -19,21 +20,15 @@
 <section>
   {#each questions as question}
     <CollapsibleSection headerText={question.q} color={question.c}>
-      {#if question.a}
-        <p>{question.a}</p>
-      {:else}
-        <i>Info coming soon.</i>
-      {/if}
+      <p transition:slide>
+        {#if question.a}
+          {question.a}
+        {:else}
+          <i transition:slide>Info coming soon.</i>
+        {/if}
+      </p>
     </CollapsibleSection>
   {/each}
-
-  <!-- <CollapsibleSection headerText={"Collapse or Expand me"}>
-    <div class="content">Look at all this fun content</div>
-  </CollapsibleSection>
-
-  <CollapsibleSection headerText={"Collapse or Expand me"}>
-    Look at all this fun content
-  </CollapsibleSection> -->
 </section>
 
 <style>
@@ -46,5 +41,6 @@
 
   p {
     font-size: large;
+    padding: 1rem;
   }
 </style>
