@@ -61,7 +61,7 @@
     margin: 0;
   }
 
-  button[aria-expanded="true"] {
+  button {
     border-bottom: 1px solid #343837;
   }
 
@@ -74,9 +74,6 @@
     margin-left: auto;
   }
 
-  .collapsible {
-    border-bottom: 1px solid #343837;
-  }
   .contents {
     padding: 1rem;
   }
