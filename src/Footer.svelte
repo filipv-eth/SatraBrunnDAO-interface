@@ -21,6 +21,6 @@
 
   footer {
     position: absolute;
-    padding-top: 150px;
+    bottom: 20px;
   }
 </style>
