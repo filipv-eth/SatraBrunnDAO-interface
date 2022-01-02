@@ -13,11 +13,14 @@
     z-index: 999;
     width: 100vw;
     max-width: 1200px;
-    padding-top: 120px;
-    margin: 0 auto;
+    margin-left: 0 auto;
+
+    display: flex;
+    justify-content: space-around;
   }
+
   footer {
-    /* Should be approx as high as the hills SVG */
-    height: 200px;
+    position: absolute;
+    padding-top: 150px;
   }
 </style>
