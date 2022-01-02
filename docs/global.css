@@ -18,14 +18,18 @@ body {
   width: 100%;
 }
 
+html {
+  padding-bottom: 200px;
+}
+
 body {
+  height: 100%;
   color: #343837;
   margin: 0;
   box-sizing: border-box;
   font-family: "Red Hat Display", sans-serif;
   max-width: 1200px;
   margin: 0 auto;
-  /* overflow: hidden; */
 }
 
 h1 {
