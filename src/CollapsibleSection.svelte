@@ -51,17 +51,14 @@
 
   button {
     background-color: unset;
+    border: none;
+    border-bottom: 1px solid #343837;
     color: #282828;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    border: none;
     margin: 0;
-  }
-
-  button {
-    border-bottom: 1px solid #343837;
   }
 
   svg {
