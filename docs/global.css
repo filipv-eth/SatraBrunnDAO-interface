@@ -10,6 +10,9 @@
   --grayish-orange: #cbbcb5;
   --grayish-blue: #dce6ef;
   --light-gray: #e5e5e5;
+
+  --light-body: #343837;
+  --dark-body: var(--grayish-orange);
 }
 
 html,
@@ -21,12 +24,19 @@ body {
 body {
   min-height: 100vh;
   padding-bottom: 200px;
-  color: #343837;
   margin: 0;
   box-sizing: border-box;
   font-family: "Red Hat Display", sans-serif;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+button {
+  color: var(--light-body);
+}
+
+body.dark-mode button {
+  color: var(--dark-body);
 }
 
 h1 {

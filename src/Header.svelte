@@ -7,10 +7,14 @@
     "--dark-red",
     "--black",
   ];
+
+  function toggleDarkMode() {
+    window.document.body.classList.toggle("dark-mode");
+  }
 </script>
 
 <header>
-  <img src="logo.svg" alt="logo" />
+  <img src="logo.svg" alt="logo" on:click={toggleDarkMode} />
   <h1>Sätra Brunn DAO</h1>
   <svg viewbox={`0 0 ${colors.length * 3} 2`}>
     {#each colors as color, index}
