@@ -2,17 +2,15 @@
   import Header from "./Header.svelte";
   import Footer from "./Footer.svelte";
   import FAQ from "./FAQ.svelte";
+
+  import ColorPaletteCircles from "./ColorPaletteCircles.svelte";
 </script>
 
 <Header />
 <main>
   <section id="main-description">
     <article>
-      <img
-        id="color-palette"
-        src="circle-palette.png"
-        alt="color palette in circles"
-      />
+      <ColorPaletteCircles />
       <p>
         <b>Sätra Brunn</b> is a 144 acre wellness destination in the suburbs of Stockholm,
         Sweden, renowned for its healing spring water and picturesque scenery.
@@ -82,10 +80,6 @@
 
   hr {
     border: 1px solid #343837;
-  }
-
-  #color-palette {
-    width: 250px;
   }
 
   #map {
