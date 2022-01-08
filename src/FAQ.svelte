@@ -30,7 +30,7 @@
     },
     {
       q: "How can I donate?",
-      a: "Head to our <a href='https://juicebox.money/#/p/satrabrunndao'>Juicebox Project</a> on <a href='https://juicebox.money/#/'>juicebox.money!</a>",
+      a: "Head to our <a href='https://juicebox.money/#/p/satrabrunndao'>Juicebox Project</a> on <a href='https://juicebox.money/#/'>juicebox.money</a>!",
       c: "--brown",
     },
     {
