@@ -14,4 +14,10 @@
     font-weight: 700;
     font-size: 1.5rem;
   }
+
+  @media (max-width: 640px) {
+    a {
+      font-size: 1rem;
+    }
+  }
 </style>
