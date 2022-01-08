@@ -38,11 +38,9 @@
     font-family: "Red Hat Display", sans-serif;
     font-weight: 300;
   }
-
-  /* svg {
-    margin-left: auto;
-    max-width: 250px;
-  } */
+  :global(body.dark-mode) a {
+    color: var(--dark-body);
+  }
 
   @media (min-width: 640px) and (max-width: 850px) {
     nav {
