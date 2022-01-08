@@ -29,8 +29,8 @@
       c: "--grayish-orange",
     },
     {
-      q: "When can I donate?",
-      a: "Contributors are working around the clock to guarantee the sustainability of this project, and donations are expected to open up in the next 2-5 days.",
+      q: "How can I donate?",
+      a: "Head to our <a href='https://juicebox.money/#/p/satrabrunndao'>Juicebox Project</a> on <a href='https://juicebox.money/#/'>juicebox.money!</a>",
       c: "--brown",
     },
     {
