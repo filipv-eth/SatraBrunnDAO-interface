@@ -1,4 +1,4 @@
-<a href="https://juicebox.money/#/p/satrabrunndao">Juicebox</a>
+<a href="https://juicebox.money/#/p/satrabrunndao">juicebox</a>
 <a href="https://twitter.com/SatraBrunn">twitter</a>
 <a href="https://discord.gg/pQGpBAQM">discord</a>
 <!-- TODO check Notion link, I think current Notion setting is that anyone with the link can edit -->

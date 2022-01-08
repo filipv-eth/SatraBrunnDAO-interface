@@ -1,12 +1,6 @@
 <script>
-  const colors = [
-    "--blue",
-    "--blackish",
-    "--grayish-orange",
-    "--brown",
-    "--dark-red",
-    "--black",
-  ];
+  import DarkmodeToggle from "./DarkmodeToggle.svelte";
+  import { links } from "./links.js";
 
   function toggleDarkMode() {
     window.document.body.classList.toggle("dark-mode");
@@ -16,11 +10,12 @@
 <header>
   <img src="logo.svg" alt="logo" on:click={toggleDarkMode} />
   <h1>Sätra Brunn DAO</h1>
-  <svg viewbox={`0 0 ${colors.length * 3} 2`}>
-    {#each colors as color, index}
-      <rect width="3" height="2" x={`${index * 3}`} fill={`var(${color})`} />
+  <nav>
+    {#each links.slice(0, -1) as link}
+      <a href={link.url}>{link.label}</a>
     {/each}
-  </svg>
+  </nav>
+  <DarkmodeToggle />
 </header>
 
 <style>
@@ -31,15 +26,36 @@
   img {
     margin: 1rem;
   }
+  nav {
+    display: flex;
+    font-size: 24px;
+    justify-content: space-around;
+    width: 50%;
+  }
 
-  svg {
+  nav a {
+    color: #343837;
+    font-family: "Red Hat Display", sans-serif;
+    font-weight: 300;
+  }
+
+  /* svg {
     margin-left: auto;
     max-width: 250px;
+  } */
+
+  @media (min-width: 640px) and (max-width: 850px) {
+    nav {
+      font-size: 18px;
+    }
   }
 
   @media (max-width: 640px) {
-    svg {
+    nav {
       display: none;
+    }
+    header:last-child {
+      margin-left: auto;
     }
   }
 </style>
