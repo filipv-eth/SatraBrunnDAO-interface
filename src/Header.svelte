@@ -31,10 +31,18 @@
     margin: 1rem;
     height: 125px;
     width: 125px;
-    transition: 5s all;
+    transition: 2s all;
   }
 
   @media (max-width: 640px) {
+    h1 {
+      font-size: 1.6rem;
+    }
+    img {
+      margin: unset;
+      height: 100px;
+      width: 100px;
+    }
     header:last-child {
       margin-left: auto;
     }

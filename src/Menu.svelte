@@ -51,13 +51,6 @@ likely to change -->
     color: var(--dark-body);
   }
 
-  .menu-icon {
-    display: none;
-    /* Manually pixel-pushed with darkmode toggle as reference */
-    margin-top: 6px;
-    margin-left: auto;
-  }
-
   .hidden {
     display: none !important;
   }
