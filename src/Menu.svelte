@@ -11,15 +11,18 @@
   }
 </script>
 
+<!-- TODO definitely needs a cleanup, not refactoring for now as it's
+likely to change -->
+
+<!-- Links for screens > 640px -->
 <nav class="large" class:darkMode>
   {#each links.slice(0, -1) as link}
     <a href={link.url}>{link.label}</a>
   {/each}
 </nav>
 
-<div class="menu-icon" on:click={toggle} class:hidden={open}>
-  <Hamburger />
-</div>
+<!-- Hamburger and menu for screens <640px -->
+<Hamburger click={toggle} />
 <div class="overlay" class:darkMode class:hidden={!open}>
   <div class="menu-icon" on:click={toggle}>
     <Cross />
@@ -60,6 +63,7 @@
   }
   .overlay {
     position: fixed;
+    overflow: none;
     top: 0;
     height: 100%;
     width: 100vw;
