@@ -1,21 +1,30 @@
 <script>
   import DarkmodeToggle from "./DarkmodeToggle.svelte";
   import { links } from "./links.js";
+  import { fade } from "svelte/transition";
 
-  function toggleDarkMode() {
-    window.document.body.classList.toggle("dark-mode");
-  }
+  import { darkMode as darkModeStore, toggleDarkMode } from "./stores.js";
+
+  let darkMode;
+  darkModeStore.subscribe((value) => {
+    darkMode = value;
+  });
 </script>
 
 <header>
-  <img src="logo.svg" alt="logo" on:click={toggleDarkMode} />
+  <img
+    src={darkMode ? "darkLogo.png" : "lightLogo.png"}
+    alt="logo"
+    in:fade={{ delay: 5000 }}
+    on:click={toggleDarkMode}
+  />
   <h1>Sätra Brunn DAO</h1>
-  <nav>
+  <nav class:darkMode>
     {#each links.slice(0, -1) as link}
       <a href={link.url}>{link.label}</a>
     {/each}
   </nav>
-  <DarkmodeToggle />
+  <DarkmodeToggle {darkMode} toggle={toggleDarkMode} />
 </header>
 
 <style>
@@ -25,7 +34,11 @@
   }
   img {
     margin: 1rem;
+    height: 125px;
+    width: 125px;
+    transition: 5s all;
   }
+
   nav {
     display: flex;
     font-size: 24px;
@@ -38,7 +51,7 @@
     font-family: "Red Hat Display", sans-serif;
     font-weight: 300;
   }
-  :global(body.dark-mode) a {
+  nav.darkMode a {
     color: var(--dark-body);
   }
 
