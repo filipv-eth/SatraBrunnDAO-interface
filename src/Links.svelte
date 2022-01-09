@@ -1,12 +1,10 @@
-<a href="https://juicebox.money/#/p/satrabrunndao">juicebox</a>
-<a href="https://twitter.com/SatraBrunn">twitter</a>
-<a href="https://discord.gg/pQGpBAQM">discord</a>
-<!-- TODO check Notion link, I think current Notion setting is that anyone with the link can edit -->
-<a
-  href="https://satrabrunn.notion.site/S-tra-Brunn-DAO-Notion-2ecbecf19ac3455a83ef6b6206e193bc"
-  >notion</a
->
-<a href="https://github.com/filipv-eth/SatraBrunnDAO-interface">github</a>
+<script>
+  import { links } from "./links.js";
+</script>
+
+{#each links as link}
+  <a href={link.url}>{link.label}</a>
+{/each}
 
 <style>
   a {

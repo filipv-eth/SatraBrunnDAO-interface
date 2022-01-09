@@ -8,7 +8,7 @@ export const links = [
     label: "twitter",
   },
   {
-    url: "https://discord.gg/pQGpBAQM",
+    url: "https://discord.gg/aDZJNKtuY4",
     label: "discord",
   },
   {
