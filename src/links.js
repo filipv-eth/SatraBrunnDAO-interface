@@ -21,3 +21,15 @@ export const links = [
     label: "github",
   },
 ];
+
+export const linkLabels = {
+  juicebox: 0,
+  twitter: 1,
+  discrod: 2,
+  notion: 3,
+  github: 4,
+};
+
+export function getLink(label) {
+  return links[linkLabels[label]]?.url;
+}

@@ -5,6 +5,7 @@
   import FAQ from "./FAQ.svelte";
 
   import ColorPaletteCircles from "./ColorPaletteCircles.svelte";
+import FundingProgressBar from "./FundingProgressBar.svelte";
 </script>
 
 <Header />
@@ -24,6 +25,7 @@
     </article>
     <img id="map" src="map.png" alt="map" />
   </section>
+  <FundingProgressBar />
   <Carousell />
   <FAQ />
 </main>
