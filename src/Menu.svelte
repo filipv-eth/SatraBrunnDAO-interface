@@ -55,6 +55,7 @@ likely to change -->
     display: none !important;
   }
   .overlay {
+    z-index: 999;
     position: fixed;
     overflow: none;
     top: 0;

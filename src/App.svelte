@@ -1,4 +1,5 @@
 <script>
+  import Carousell from "./Carousell.svelte";
   import Header from "./Header.svelte";
   import Footer from "./Footer.svelte";
   import FAQ from "./FAQ.svelte";
@@ -23,6 +24,7 @@
     </article>
     <img id="map" src="map.png" alt="map" />
   </section>
+  <Carousell />
   <FAQ />
 </main>
 <Footer />
@@ -92,7 +94,8 @@
     }
 
     :global(body) {
-      overflow: scroll;
+      overflow-y: scroll;
+      overflow-x: hidden;
     }
 
     article {
