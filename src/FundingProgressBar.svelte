@@ -81,4 +81,10 @@
     align-items: center;
     margin-left: auto;
   }
+
+  @media (max-width: 640px) {
+   svg {
+       max-width: 340px;
+   }
+  }
 </style>
