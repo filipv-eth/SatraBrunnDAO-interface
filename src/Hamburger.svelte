@@ -8,22 +8,22 @@
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
 >
-  <rect x="1" y="1" width="38" height="38" rx="9" stroke-width="2" />
+  <rect x="1" y="1" width="38" height="38" rx="9" stroke-width="1" />
   <path
     d="M10 13H30"
-    stroke-width="2"
+    stroke-width="1"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
   <path
     d="M10 20H30"
-    stroke-width="2"
+    stroke-width="1"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
   <path
     d="M10 27H30"
-    stroke-width="2"
+    stroke-width="1"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
