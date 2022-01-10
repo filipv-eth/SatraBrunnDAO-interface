@@ -9,14 +9,19 @@
   darkModeStore.subscribe((value) => {
     darkMode = value;
   });
+
+  $: logo = darkMode ? "darkLogo.png" : "lightLogo.png";
 </script>
 
 <header>
-  <img
-    src={darkMode ? "darkLogo.png" : "lightLogo.png"}
-    alt="logo"
-    on:click={toggleDarkMode}
-  />
+  {#key logo}
+    <img
+      src={logo}
+      alt="logo"
+      on:click={toggleDarkMode}
+      in:fade={{ delay: 500 }}
+    />
+  {/key}
   <h1>Sätra Brunn DAO</h1>
   <Menu {darkMode} />
   <DarkmodeToggle {darkMode} toggle={toggleDarkMode} />

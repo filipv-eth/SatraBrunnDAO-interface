@@ -1,3 +1,4 @@
+<!-- WIP: initial deploy done, having trouble with alignment :facepalm:  -->
 <script>
   import { onMount } from "svelte";
 
@@ -14,7 +15,6 @@
   function prev() {
     index = (index - 1) % images.length;
   }
-  console.log(images);
 
   onMount(() =>
     setInterval(() => {
@@ -84,12 +84,11 @@
   }
 
   @media (max-width: 640px) {
-
     section {
-        height: 300px;
+      height: 60vw;
     }
     img {
-        max-width: 100vw;
+      max-width: 100vw;
     }
   }
 </style>
