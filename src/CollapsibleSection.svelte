@@ -46,6 +46,7 @@
     font-style: italic;
     font-family: "Red Hat Display", sans-serif;
     margin-left: 1rem;
+    cursor: pointer;
   }
 
   h3 {
