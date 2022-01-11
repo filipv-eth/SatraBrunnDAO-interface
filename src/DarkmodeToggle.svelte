@@ -57,6 +57,7 @@
 <style>
   svg {
     margin-right: 1rem;
+    cursor: pointer;
   }
 
   @media (max-width: 640px) {
