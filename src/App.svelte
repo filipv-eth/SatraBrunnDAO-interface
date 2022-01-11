@@ -20,7 +20,7 @@ import FundingProgressBar from "./FundingProgressBar.svelte";
       <hr />
       <p>
         Sätra Brunn DAO plans to buy Sätra Brunn at auction to establish the
-        first-ever real world <b>DAO-governed municipality.</b>
+        first-ever real world <b>DAO-governed township.</b>
       </p>
     </article>
     <img id="map" src="map.png" alt="map" />
