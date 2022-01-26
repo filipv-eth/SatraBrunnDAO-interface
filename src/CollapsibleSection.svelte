@@ -8,7 +8,7 @@
 </script>
 
 <!-- NOTE: ugly transform below is to silence console error of setting transform to false -->
-
+<!-- TODO fix headers -->
 <div class="collapsible">
   <h3>
     <button aria-expanded={expanded} on:click={() => (expanded = !expanded)}
@@ -46,10 +46,10 @@
     font-style: italic;
     font-family: "Red Hat Display", sans-serif;
     margin-left: 1rem;
-    cursor: pointer;
   }
-
+  
   h3 {
+    cursor: pointer;
     margin: 0;
   }
 

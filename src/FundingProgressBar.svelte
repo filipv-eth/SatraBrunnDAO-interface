@@ -15,8 +15,7 @@
     provider
   );
 
-  //   jb_contract.balanceOf("253").then((result) => {
-  jb_contract.currentOverflowOf("253").then((result) => {
+  jb_contract.balanceOf("253").then((result) => {
     ethValue = ethers.utils.formatEther(result._hex);
     value = ethValue / 2500;
     loading = false;
